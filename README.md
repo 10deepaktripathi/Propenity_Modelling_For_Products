@@ -104,3 +104,17 @@ across the dataset. I have created few two-tower model architectures in which I 
 customer and product context information as well and to do that I have merged pre-processed
 transnational dataset obtained above with the customer file and product file on the basis of
 customer code and product code respectively.
+
+
+# Models
+Note that we need to create a recommendation model, which does not only recommends
+costumers given an input product but also generates a propensity(confidence) score between
+0 to 1. I first have started implementing ALS Implicit, BPR, and Logistic Matrix Factoriza-
+tion(LMF) models. Python already has an implementation of all of these models. The only
+problem in using these models is that they do not generate confidence score between 0 to 1.
+Still i will use all of these models for performance comparison. I then have started building
+two-tower deep learning recommendation models. The advantage of using these models is
+that if we use sigmoid activation function at the last layer of them, they will generate a score
+between 0 to 1, which we can consider as confidence score. To verify how good these two
+tower models are, i have verified their performance against ALS, BPR, LMF and popularity
+based models. Below i have discussed in detail about all the models that i have tried.
