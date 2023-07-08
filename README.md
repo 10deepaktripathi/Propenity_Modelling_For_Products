@@ -55,3 +55,20 @@ regularization hyper parameter, (∥p2u∥ + ∥q2i∥) is the regularization te
 This objective function can further be modified in various ways as stated in depending
 on the data we are dealing with. In the paper, the author has suggested two approaches
 namely SGD and ALS to minimize the above loss function.
+
+# Implicit Data
+As the name suggests, Implicit data is collected implicitly without asking the user to rate
+the product explicitly. it is the purchases that a user makes, videos that he watches, or items
+that he views or clicks. No matter which type of interaction is it, if a user has interacted with
+an item, we call it positive feedback from the user given to that item even if the user has
+interacted just once. Below is an image of implicit feedback interaction matrix Y
+
+IMAGE
+
+Where yu i shows the interaction between user and item. yu i is equal to 1 shows the user liked
+the item, whereas yu i equal to 0 does not show any preference about the user. Note with this
+formulation, if a user has not interacted with an item, it does not mean s/he disliked the item.
+It might be that the user was not aware of this item. Similarly, if a user has interacted with an
+item just once we are not sure if s/he has actually liked the item. Because of this uncertainty
+in user preference, the matrix factorization technique which we discussed above will give
+poor result with implicit data.
