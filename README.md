@@ -72,3 +72,19 @@ It might be that the user was not aware of this item. Similarly, if a user has i
 item just once we are not sure if s/he has actually liked the item. Because of this uncertainty
 in user preference, the matrix factorization technique which we discussed above will give
 poor result with implicit data.
+
+
+# Evaluation Techniques
+You can use various techniques to come up with multiple recommendation models, but the
+selection of one among them requires some sort of evaluation. There are various techniques
+that nowadays can be used to evaluate the recommendation model performance offline,
+among them I have described one below-
+
+## HitRate@rankN:
+the process of calculating the hit rate is as below[11]-
+For each user, first, we remove an item with which the user has actually interacted and use
+the remaining interactions for the training recommendation system. Once trained, use the
+recommendation model to recommend N items for each user out of the total items available
+in the database including the one which you had earlier taken out. If taken away item is
+inside top n recommendations for a user, then it is a hit for that user. we then sum all the hits
+and divide that by the number of users. The obtained number is called the hit rate.
