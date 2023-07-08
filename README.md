@@ -258,3 +258,23 @@ good as ALS. Below is the result-
 
 
 ![Chart](charts/result4.png)
+
+
+# Conclusion
+We started by first introducing the business problem and then suggesting that the personal-
+ized recommendation system could be the potential solution to that. We then studied a little
+about what a recommendation system is, what type of companies are using them and what
+benefits it can provide. We then familiarized ourselves with different types of recommen-
+dation systems (content-based, collaborative, and hybrid) and what data (Explicit, Implicit)
+do these systems use to get trained. We then studied one of the most popular techniques
+“Matrix Factorization” to build a personalized recommendation system. We then realized
+that Matrix Factorization using implicit set data needs different types of loss functions and
+we explored various pieces of literature to know which loss function can we use. We then
+defined the methodology used in this project, under which we got to know about the method
+for splitting data into train and test, models that we have used,feature engineering that we
+have performed, evaluation metrics used, and steps for making a prediction. Eventually,
+we discussed the performance of different models used in this project and found that the
+ALS model, implemented in python implicit library, performed the best. We did not select
+this model because of its incapability of generating the propensity score. Eventually, we
+selected the second best model NueMF, which was trained using cross entropy loss and could
+generate propensity score along with each recommendations.
