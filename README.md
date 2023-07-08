@@ -41,12 +41,12 @@ in which each row relates to a specific user and another smaller matrix denotes 
 in the same vector space in which each row relates to a specific item. Once these smaller
 matrices are learned, missing values can be predicted by multiplying these matrices again.
 
-IMAGE
+![Chart](charts/matrix_factorization.png)
 
 The main goal while trying to learn smaller matrices is to minimize the below loss
 function
 
-IMAGE
+![Chart](charts/formula_matrix_fact.png)
 
 
 Where ru i is the actual rating, pu is a vector representing a specific user in smaller
@@ -63,7 +63,7 @@ that he views or clicks. No matter which type of interaction is it, if a user ha
 an item, we call it positive feedback from the user given to that item even if the user has
 interacted just once. Below is an image of implicit feedback interaction matrix Y
 
-IMAGE
+![Chart](charts/Implicit_data.png)
 
 Where yu i shows the interaction between user and item. yu i is equal to 1 shows the user liked
 the item, whereas yu i equal to 0 does not show any preference about the user. Note with this
