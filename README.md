@@ -118,3 +118,102 @@ that if we use sigmoid activation function at the last layer of them, they will 
 between 0 to 1, which we can consider as confidence score. To verify how good these two
 tower models are, i have verified their performance against ALS, BPR, LMF and popularity
 based models. Below i have discussed in detail about all the models that i have tried.
+
+# ALSimplicit and Logistic Matrix Factorization model
+Then I have started building ALSimplicit and Logistic Matrix Factorization model (discussed
+in the literature review section earlier), which is specially designed to create a recommenda-
+tion model using implicit data and provide recommendations in ranked order. These models
+have two hyperparameters α and dimension of latent factor matrix. α is the parameter used
+to calculate the confidence depending on the number of times user u has interacted with
+an item i. This confidence is then used to give weightage to user-item preference. I have
+selected the number of latent factors to be 32 and α = 40. To train these models, we first need
+to convert dense user-item interaction matrix into sparse matrix form. The model expects
+items to be the rows of sparse matrix and users to be the columns of the sparse matrix where
+each cell of this matrix will contain the number of times a user has interacted with the item.
+
+# Bayesian personalized ranking model
+I then have tried the Bayesian personalized ranking model (discussed in the literature review
+section earlier), which tries to maximize the margin between observed user-item interactions
+and unobserved user-item interactions. The objective of this model is to rank observed inter-
+actions higher than unobserved interactions. This model has one important hyperparameter
+which is the dimension of the latent factor matrix. For this model too, I have considered
+the factor’s dimension to be 32. Like ALS implicit and Logistic model, this model expects
+user-item interaction matrix in a similar format, but each cell of it does not necessarily need
+to contain user-item interaction count. Internally this algorithm transforms all non-zero cells
+to contain just 1 to show the user-item interaction.
+
+# Embedding Based Two Tower models
+
+## Role of embeddings in two tower model
+An embedding in deep learning is used to represent a large set of categorical values in a
+small dimensional space such that values similar to one another have similar embedding
+vectors. Because of their capability of putting similar items together, they play an important
+role in designing a two-tower recommendation model. What happens internally is that users,
+whose liking for items is similar, come closure in embedding space. Similarly, items, which
+are liked by the same set of users come closure to each other. This potential of embedding
+layer enables us to find similar users and items given an input user or item respectively.
+Because each dimension of the embedded vector represents a certain attribute, by doing a
+dot product between user and item embedding vectors, we can tell how similar user an item
+vectors are.
+
+## GMF
+With GMF two-tower modeling, I have tried implementing matrix factorization using
+embedding vectors obtained for each input user and item. Once the user and item embedding
+vectors are obtained, I am calculating the dot product of these vectors and then feeding this
+product inside the sigmoid function. The sigmoid function generates a score between 0 to 1
+which I am considering as the probability of user-item interaction being a positive interaction.
+Below is the architecture of GMF.
+
+![Chart](charts/GMF.png)
+
+As you can see it has two towers. One tower is responsible for learning user features. Tt
+has separate input and embedding layers dedicated to the user. Similarly, another tower is
+responsible for learning user features. It has its own input and embedding layers. Output
+embedding vectors obtained from both user and item embedding layers are of the same
+length and that’s why we can perform dot product operation between them and send the
+result in the last layer.
+
+## MLP
+
+MLP variant of two tower architecture involves three MLP hidden layers with Relu
+activation function. The notion behind implementing this model is that it might identify
+even more complex patterns in data with the help of the nonlinear activation function Relu.
+Similar to the above one, this model too has two towers; one responsible for learning user
+information and another for item information, but unlike the earlier one where embeddings
+were being multiplied to get the dot product, here they are simply being concatenated and
+then concatenated layer is following 3 hidden layers with 8 neurons, 4 neurons, and 2 neurons.
+All of these layers have Relu activation function. Lastly, in the output layer with 1 neuron,
+sigmoid is being used to get the probability of a user-item pair being a positive one. Below is
+the architecture of MLP two tower.
+
+![Chart](charts/MLP.png)
+
+## NeuMF
+In NeuMF two-tower architecture, I am fusing GMF two-tower model and MLP two-
+tower model together so that it has all the qualities of matrix factorization and complex MLP.
+Equal weightage has been given to both the GMF and MLP model outputs which are being
+concatenated in the next layer and then sigmoid is being used in the last layer to predict the
+probability of positive user-item interaction.
+
+![Chart](charts/NueMF.png)
+
+### Feeding side information in two-tower
+One of the advantages of using two tower modeling is that feeding context information
+related to user and item becomes very easy. Now from user tower, instead of just feeding
+customerid I will also feed customer type. From product/item tower, instead of just feeding
+product id I will also feed product type. Below is an image GMF two-tower with side
+information-
+
+![Chart](charts/TTwithSideInfo.png)
+
+### Feature Engineering
+RFM modelling is one of the popular approaches of segmenting customers in different
+groups. Keeping in mind different groups of customers might behave differently, I have
+engineered 6 new features. these features are customer recency, customer frequency, customer
+monetary, product recency, product frequency, product monetary.
+Customer Recency : Date when the customer made his latent transaction
+Customer Frequency: How many times so far, customer has made transaction
+Customer Monetary: How much money customer has spent so far
+Product Recency: Date when the latest transaction happened for this product
+Product Frequency: How many times this product has been bought
+Product Monetary: How much money has been spent so far on this product
