@@ -89,4 +89,18 @@ in the database including the one which you had earlier taken out. If taken away
 inside top n recommendations for a user, then it is a hit for that user. we then sum all the hits
 and divide that by the number of users. The obtained number is called the hit rate.
 
-
+# Dataset
+The data I am going to work on has 3 important data files. One file contains all the information
+related to customers, another file contains all the information related to products and the third
+file contains all the detail related to any transactions that have been made by any customer
+on any product. There are a total of 8 million transactions for 250,000 customers and 6600
+products. Transnational data has the same customer and product combination multiple
+times but on different timestamps showing that a customer has bought the same product
+multiple times. I have pre-processed the transnational data to have a unique customer and
+product combination with the information of a total number of times this product was bought
+by the customer. Note that the same customer and same product might occur multiple
+times individually in the pre-processed dataset, but the combination of them will be unique
+across the dataset. I have created few two-tower model architectures in which I have used
+customer and product context information as well and to do that I have merged pre-processed
+transnational dataset obtained above with the customer file and product file on the basis of
+customer code and product code respectively.
