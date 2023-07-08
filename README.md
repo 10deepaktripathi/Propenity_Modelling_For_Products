@@ -88,3 +88,5 @@ recommendation model to recommend N items for each user out of the total items a
 in the database including the one which you had earlier taken out. If taken away item is
 inside top n recommendations for a user, then it is a hit for that user. we then sum all the hits
 and divide that by the number of users. The obtained number is called the hit rate.
+
+
