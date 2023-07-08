@@ -211,9 +211,42 @@ RFM modelling is one of the popular approaches of segmenting customers in differ
 groups. Keeping in mind different groups of customers might behave differently, I have
 engineered 6 new features. these features are customer recency, customer frequency, customer
 monetary, product recency, product frequency, product monetary.
-Customer Recency : Date when the customer made his latent transaction
-Customer Frequency: How many times so far, customer has made transaction
-Customer Monetary: How much money customer has spent so far
-Product Recency: Date when the latest transaction happened for this product
-Product Frequency: How many times this product has been bought
-Product Monetary: How much money has been spent so far on this product
+Customer Recency : Date when the customer made his latent transaction,
+Customer Frequency: How many times so far, customer has made transaction,
+Customer Monetary: How much money customer has spent so far,
+Product Recency: Date when the latest transaction happened for this product,
+Product Frequency: How many times this product has been bought,
+Product Monetary: How much money has been spent so far on this product.
+
+# Results and Discussion
+
+I started by first using python inbuild ALS Implicit, BPR, and Logistic matrix factorization
+model (available in the implicit library of python) and found that ALS implicit perform the
+best among them. For all of these models, the latent dimension was 32. Below is the result-
+
+![Chart](charts/result1.png)
+
+The above plot is showing the hit rates of all the models at different ranks. X-axes denotes
+rank and Y-axes denotes HitRate.
+
+
+Then I compared how well these models are when compared to popularity-based models,
+and I got the below result-
+
+![Chart](charts/result2.png)
+
+As you can see, all of these models are way better than the popularity-based model(
+Represented by the red color horizontal line).
+After this, I tried implementing tower models (GMF, MLP, and NueMF(Fused model of
+GMF and MLP)). First, I tried training these models using binary cross-entropy loss, and I
+found that MLP based two-tower model(NCF) has performed slightly better than the other
+two models(GMF and NueMF). Below is the result
+
+![Chart](charts/result3.png)
+
+I also compared the performance of these models against ALS, BPR, and LMF models
+used earlier and found that all two-tower models were better than BPR and LMF but not as
+good as ALS. Below is the result-
+
+
+![Chart](charts/result4.png)
