@@ -31,3 +31,27 @@ An appropriate way to accomplish this task is to create a recommendation model, 
 generate a list of customers, who might be interested in buying a given product. Along with
 these recommendations, this model will also be generating a propensity score to show how
 confident the system is in recommending each customer.
+
+# Matrix factorization
+Matrix factorization is one of the most popular approaches to implement collaborative
+filtering. In matrix factorization, a large user-item sparse matrix is
+decomposed into two smaller dense matrices using some MF techniques such as ALS,
+SVD, or SVD++. One of these two matrices denotes only users in reduced vector space
+in which each row relates to a specific user and another smaller matrix denotes only items
+in the same vector space in which each row relates to a specific item. Once these smaller
+matrices are learned, missing values can be predicted by multiplying these matrices again.
+
+IMAGE
+
+The main goal while trying to learn smaller matrices is to minimize the below loss
+function
+
+IMAGE
+
+
+Where ru i is the actual rating, pu is a vector representing a specific user in smaller
+vector space and qi is a vector representing a specific item in smaller vector space, λ is the
+regularization hyper parameter, (∥p2u∥ + ∥q2i∥) is the regularization term with L2 norm.
+This objective function can further be modified in various ways as stated in depending
+on the data we are dealing with. In the paper, the author has suggested two approaches
+namely SGD and ALS to minimize the above loss function.
