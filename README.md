@@ -1,4 +1,11 @@
 # Propenity_Modelling_For_Wine_Company
+
+
+## Directory Structure
+- [propensity_modelling.ipynb](./propensity_modelling.ipynb): Notebook contains comparitive study about various statistical ways of comingup with the best suitable model for the task.
+- [charts](./charts): Contains all the charts that were drawn on this project.
+
+
 In this project, we have created a recommendation model which upon giving a product
 can generate a list of potential customers who might be interested in the product. Recom-
 mendations are generated along with a confidence score which shows how relevant that
@@ -15,6 +22,7 @@ us better performance. To improve the performance, we tried engineering new feat
 as recency, frequency, and monetary for both customers and products. Eventually, I compared
 the result of these deep learning models with the popularity-based model, alternating least
 squares and Bayesian personalized ranking model using the metric called HitRatio.
+
 
 # Business Problem and Its Soluton
 XYZ is one of the largest specialist retailer of wine. Occasionally
