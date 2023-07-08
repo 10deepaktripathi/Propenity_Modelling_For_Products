@@ -17,7 +17,7 @@ the result of these deep learning models with the popularity-based model, altern
 squares and Bayesian personalized ranking model using the metric called HitRatio.
 
 # Business Problem and Its Soluton
-XYZ is the United Kingdom’s largest specialist retailer of wine [22]. Occasionally
+XYZ is one of the largest specialist retailer of wine. Occasionally
 it has an excess inventory of wines that it wants to get rid of. The problem is how to
 identify customers who might be interested in buying a particular wine. Once it has a list of
 customers who might be interested in certain wines, it may contact/email those customers
