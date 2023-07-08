@@ -15,3 +15,19 @@ us better performance. To improve the performance, we tried engineering new feat
 as recency, frequency, and monetary for both customers and products. Eventually, I compared
 the result of these deep learning models with the popularity-based model, alternating least
 squares and Bayesian personalized ranking model using the metric called HitRatio.
+
+# Business Problem and Its Soluton
+XYZ is the United Kingdom’s largest specialist retailer of wine [22]. Occasionally
+it has an excess inventory of wines that it wants to get rid of. The problem is how to
+identify customers who might be interested in buying a particular wine. Once it has a list of
+customers who might be interested in certain wines, it may contact/email those customers
+and sell out that excess inventory. To attract more customers, it might also give targeted
+offerings/discounts.
+One of the solutions to this task is to create a propensity model for given categories of
+products. This model will use customer’s historical behavior to predict their likelihood of
+purchasing these products. That means the model will create, for every customer, a propensity
+score for each of the agreed categories of product.
+An appropriate way to accomplish this task is to create a recommendation model, which can
+generate a list of customers, who might be interested in buying a given product. Along with
+these recommendations, this model will also be generating a propensity score to show how
+confident the system is in recommending each customer.
