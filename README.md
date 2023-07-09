@@ -266,9 +266,8 @@ ized recommendation system could be the potential solution to that. We then stud
 about what a recommendation system is. We then familiarized ourselves what data (Explicit, Implicit)
 do these systems use to get trained. We then studied one of the most popular techniques
 “Matrix Factorization” to build a personalized recommendation system. We then realized
-that Matrix Factorization using implicit set data needs different types of loss functions. We then
-defined the methodology used in this project, under which we got to know about the method
-for splitting data into train and test, models that we have used,feature engineering that we
+that Matrix Factorization using implicit data needs different types of loss functions. We then
+defined the methodology used in this project, under which we got to know about the models that we have used,feature engineering that we
 have performed, evaluation metrics used, and steps for making a prediction. Eventually,
 we discussed the performance of different models used in this project and found that the
 ALS model, implemented in python implicit library, performed the best. We did not select
