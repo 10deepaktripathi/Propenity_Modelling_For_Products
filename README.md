@@ -30,7 +30,7 @@ it has an excess inventory of wines that it wants to get rid of. The problem is 
 identify customers who might be interested in buying a particular wine. Once it has a list of
 customers who might be interested in certain wines, it may contact/email those customers
 and sell out that excess inventory. To attract more customers, it might also give targeted
-offerings/discounts.
+offerings/discounts.</br>
 One of the solutions to this task is to create a propensity model for given categories of
 products. This model will use customer’s historical behavior to predict their likelihood of
 purchasing these products. That means the model will create, for every customer, a propensity
