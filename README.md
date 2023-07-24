@@ -34,7 +34,7 @@ offerings/discounts.</br>
 One of the solutions to this task is to create a propensity model for given categories of
 products. This model will use customer’s historical behavior to predict their likelihood of
 purchasing these products. That means the model will create, for every customer, a propensity
-score for each of the agreed categories of product.
+score for each of the agreed categories of product.</br>
 An appropriate way to accomplish this task is to create a recommendation model, which can
 generate a list of customers, who might be interested in buying a given product. Along with
 these recommendations, this model will also be generating a propensity score to show how
@@ -218,13 +218,13 @@ information-
 RFM modelling is one of the popular approaches of segmenting customers in different
 groups. Keeping in mind different groups of customers might behave differently, I have
 engineered 6 new features. these features are customer recency, customer frequency, customer
-monetary, product recency, product frequency, product monetary.
-Customer Recency : Date when the customer made his latent transaction,
-Customer Frequency: How many times so far, customer has made transaction,
-Customer Monetary: How much money customer has spent so far,
-Product Recency: Date when the latest transaction happened for this product,
-Product Frequency: How many times this product has been bought,
-Product Monetary: How much money has been spent so far on this product.
+monetary, product recency, product frequency, product monetary.</br>
+Customer Recency : Date when the customer made his latent transaction,</br>
+Customer Frequency: How many times so far, customer has made transaction,</br>
+Customer Monetary: How much money customer has spent so far,</br>
+Product Recency: Date when the latest transaction happened for this product,</br>
+Product Frequency: How many times this product has been bought,</br>
+Product Monetary: How much money has been spent so far on this product.</br>
 
 # Results and Discussion
 
@@ -235,7 +235,7 @@ best among them. For all of these models, the latent dimension was 32. Below is 
 ![Chart](charts/result1.png)
 
 The above plot is showing the hit rates of all the models at different ranks. X-axes denotes
-rank and Y-axes denotes HitRate.
+rank and Y-axes denotes HitRate.</br>
 
 
 Then I compared how well these models are when compared to popularity-based models,
@@ -244,7 +244,7 @@ and I got the below result-
 ![Chart](charts/result2.png)
 
 As you can see, all of these models are way better than the popularity-based model(
-Represented by the red color horizontal line).
+Represented by the red color horizontal line).</br>
 After this, I tried implementing tower models (GMF, MLP, and NueMF(Fused model of
 GMF and MLP)). First, I tried training these models using binary cross-entropy loss, and I
 found that MLP based two-tower model(NCF) has performed slightly better than the other
