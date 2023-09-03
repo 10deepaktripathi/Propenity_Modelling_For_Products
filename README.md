@@ -259,6 +259,8 @@ good as ALS. Below is the result-
 
 ![Chart](charts/result4.png)
 
+
+# How does it work?
 ![Chart](charts/result.png)
 
 # Conclusion
