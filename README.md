@@ -259,6 +259,7 @@ good as ALS. Below is the result-
 
 ![Chart](charts/result4.png)
 
+![Chart](charts/result.png)
 
 # Conclusion
 We started by first introducing the business problem and then suggesting that the personal-
