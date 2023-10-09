@@ -3,7 +3,7 @@
 
 ## Directory Structure
 - [propensity_modelling.ipynb](./propensity_modelling.ipynb): Notebook contains comparitive study about various statistical ways of comingup with the best suitable model for the task.
-- [charts](./charts): Contains all the charts that were drawn on this project..
+- [charts](./charts): Contains all the charts that were drawn on this project.
 
 # Summary
 In this project, we have created a recommendation model which upon giving a product
