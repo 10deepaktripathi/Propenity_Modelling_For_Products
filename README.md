@@ -276,3 +276,4 @@ ALS model, implemented in python implicit library, performed the best. We did no
 this model because of its incapability of generating the propensity score. Eventually, we
 selected the second best model NueMF, which was trained using cross entropy loss and could
 generate propensity score along with each recommendations.
+
